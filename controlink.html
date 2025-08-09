@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tu página Netflix</title>
+</head>
+<body>
+
+<div id="contenido" style="display:none;">
+  <!-- Aquí va tu contenido normal, tus botones y todo -->
+  <h1>Bienvenido a la página de Netflix</h1>
+</div>
+
+<div id="mensaje" style="display:none; color:red; font-weight:bold;">
+  Este enlace está desactivado.
+</div>
+
+<script>
+  // Lista de enlaces activos
+  const enlacesActivos = {
+    "1": true,
+    "2": false,
+    "3": true
+  };
+
+  // Obtener parámetro 'link' de la URL
+  const params = new URLSearchParams(window.location.search);
+  const link = params.get('link');
+
+  if (link && enlacesActivos[link]) {
+    document.getElementById('contenido').style.display = 'block';
+  } else {
+    document.getElementById('mensaje').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
